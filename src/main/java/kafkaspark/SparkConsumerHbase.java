@@ -59,7 +59,7 @@ public class SparkConsumerHbase {
 		messages.foreachRDD(record -> {
 			
 			record.foreach(row -> {
-				System.out.println(row);
+				System.out.println("sample code commit"+ row);
 				KafkaProducer<Integer, String> producer = MyKafkaProducer.getProducer();
 				producer.send(new ProducerRecord<>("output", 1, row + "... here my business logic will be added..."));
 			});
